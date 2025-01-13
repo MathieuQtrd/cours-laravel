@@ -1,0 +1,129 @@
+--------------------------------
+Arborescence d'un projet Laravel
+--------------------------------
+
+Utiles pour cette semaine : 
+---------------------------
+/app/ : Contient les contrôleurs, modèles et services.
+/routes/ : Fichiers pour définir les routes web et API.
+/resources/views/ : Templates Blade pour l'affichage.
+/database/ : Fichiers de migrations et seeds.
+.env : Configuration des variables d'environnement.
+
+1. app/
+-------
+Contient la logique de l'application.
+Il regroupe les contrôleurs, modèles, politiques, services, etc.
+
+Http/Controllers/ : Dossier contenant les contrôleurs (ex : UserController.php).
+Models/ : Contient les modèles pour interagir avec la base de données.
+Providers/ : Contient des fichiers de services Laravel
+Http/Middleware/ : Contient les middlewares qui interceptent les requêtes pour les vérifier ou les modifier.
+
+2. bootstrap/
+-------------
+Initialisation de l'application.
+Ce dossier contient le fichier app.php qui charge l'application et les services essentiels.
+
+Fichier cache/ : Contient des caches générés pour améliorer la rapidité (notamment pour les routes et les configurations).
+
+3. config/
+----------
+Configuration de l'application.
+Tous les fichiers de configuration pour la base de données, le cache, les services externes, les logs, etc.
+
+Exemples :
+app.php : Configuration générale (nom de l'application, timezone, locale).
+database.php : Configuration de la connexion aux bases de données.
+mail.php : Configuration pour envoyer des e-mails.
+
+4. database/
+------------
+Gestion des migrations et des seeds.
+Il contient :
+
+migrations/ : Fichiers de migrations pour créer ou modifier des tables dans la base de données.
+seeders/ : Fichiers pour remplir automatiquement la base de données avec des données de test.
+
+5. public/
+----------
+Point d'entrée de l'application (accessible au public).
+Ce dossier contient :
+
+index.php : Le fichier principal qui charge Laravel.
+Assets : Contient les images, fichiers CSS, JavaScript accessibles via l'URL publique.
+
+6. resources/
+-------------
+Fichiers front-end de l'application. Ce dossier contient :
+
+views/ : Dossier des vues Blade (ex. home.blade.php).
+lang/ : Contient les fichiers de traduction si l'application est multilingue.
+css, js : Dossiers pour les fichiers front-end.
+
+7. routes/
+----------
+Gestion des routes de l'application.
+Ce dossier contient des fichiers définissant les routes :
+
+web.php : Routes pour les pages web classiques.
+api.php : Routes pour l'API REST.
+console.php : Commandes Artisan personnalisées.
+channels.php : Définit les canaux pour les notifications via WebSockets.
+
+8. storage/
+-----------
+Stockage des fichiers générés par l'application.
+
+logs/ : Fichiers de logs pour suivre les erreurs et l'activité.
+framework/ : Cache de sessions, des vues compilées, etc.
+app/ : Permet de stocker des fichiers utilisateur comme des images uploadées.
+
+9. tests/
+---------
+Dossier contenant les tests automatiques.
+
+Feature/ : Tests des fonctionnalités complètes.
+Unit/ : Tests des parties unitaires du code (par exemple une fonction).
+
+10. vendor/
+-----------
+Bibliothèques externes installées via Composer.
+Ce dossier est généré automatiquement et contient le framework Laravel ainsi que les dépendances tierces.
+
+Fichiers importants à la racine
+-------------------------------
+1. .env
+-------
+Contient les variables d'environnement comme la configuration de la base de données, la clé secrète de l'application, l'adresse e-mail de l'expéditeur par défaut, etc.
+Exemple :
+
+APP_NAME=MonApplication
+APP_ENV=local
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=mon_projet
+
+2. artisan
+----------
+C'est le fichier principal pour exécuter les commandes Artisan via la ligne de commande, comme :
+
+php artisan serve  # Démarrer le serveur local
+php artisan migrate  # Appliquer les migrations
+
+3. composer.json
+----------------
+Fichier qui contient la liste des dépendances du projet et les scripts Composer.
+
+4. package.json
+---------------
+Fichier qui contient les dépendances front-end (si vous utilisez npm ou yarn), comme TailwindCSS, Vue.js, ou d'autres outils JS.
+
+5. webpack.mix.js ou vite.config.js
+-----------------------------------
+Fichier de configuration utilisé pour compiler et optimiser les ressources front-end (CSS, JS).
+
+6. README.md
+------------
+Fichier de documentation du projet contenant des informations pour les développeurs sur la manière d'utiliser ou de configurer le projet.

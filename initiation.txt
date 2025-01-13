@@ -1,0 +1,43 @@
+Une fois l'installateur de Laravel installé 
+    (composer global require laravel/installer)
+
+Il est possible de devoir mettre à jour le path 
+    - aller dans les variable d'environnement
+    - dans les variables systeme cliquer sur Path et faire modifier :
+        - rajouter votre chemin exemple :
+            C:\Users\<ton_nom>\AppData\Roaming\Composer\vendor\bin
+
+https://laravel.com/docs/11.x#installing-php
+
+Nouveau projet :
+----------------
+
+On se positionne via powershell (ou cmd) où l'on souhaite, on démarre notre serveur local exemple wamp uniquement nécessaire pour mysql, le serveur web est intégré à Laravel 
+
+Commande pour installer un nouveau projet dans powershell :
+laravel new nom_du_projet
+
+étapes :
+--------
+    Pour les starter kit : none
+    Pour les tests : PHPunit => 1
+    Pour le SGBD : mysql
+    Ensuite on va dans le dossier installé, dans le fichier .env et on rajoute au niveau des lignes DB_... les deux lignes suivantes :
+
+    DB_CHARSET=utf8
+    DB_COLLATION=utf8_general_ci
+
+    (Ceci pour éviter une erreur liée à la taille des string si vous êtes en utf8mb4)
+
+    Puis valide rla création de la BDD => yes
+
+Pour démarrer votre projet :
+----------------------------
+On se positionne dedans :
+cd mon_projet_laravel
+On démarre le serveur :
+php artisan serve 
+
+L'url d'accès au projet :
+http://localhost:8000/
+

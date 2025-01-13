@@ -1,0 +1,69 @@
+---------------------
+Commandes Générales :
+---------------------
+
+# Pour Lancer le serveur web local
+php artisan serve
+
+Accès : http://localhost:8000
+
+# Affiche la liste complète des commandes disponibles dans Laravel.
+php artisan list
+
+# Affiche une aide sur l'utilisation de artisan.
+php artisan --help
+
+Routes :
+--------
+
+# Affiche toutes les routes de l'application avec leurs URL, contrôleurs, méthodes HTTP.
+php artisan route:list
+
+Base de Données :
+-----------------
+
+# Exécute les migrations pour créer ou modifier les tables de la base de données.
+php artisan migrate
+
+# Annule la dernière migration effectuée.
+php artisan migrate:rollback
+
+# Supprime toutes les tables et relance toutes les migrations.
+php artisan migrate:fresh
+
+Création de Fichier :
+---------------------
+
+# Crée un nouveau contrôleur.
+php artisan make:controller IndexController
+
+#  Crée un nouveau modèle pour la base de données.
+php artisan make:model Article
+
+# Crée une migration
+php artisan make:migration create_articles_table
+
+# Crée une classe de validation pour les formulaires.
+php artisan make:request NomRequest
+
+
+Cache et Configurations :
+-------------------------
+
+# Met en cache le fichier .env et les configurations pour améliorer la vitesse de chargement.
+php artisan config:cache
+
+# Vide le cache de l'application.
+php artisan cache:clear
+
+# Met en cache les routes pour accélérer leur chargement en production.
+php artisan route:cache
+
+# Supprime le cache des vues compilées.
+php artisan view:clear
+
+# Met l'application en mode "maintenance".
+php artisan down
+
+# Remet l'application en ligne après le mode maintenance.
+php artisan up
