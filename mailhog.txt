@@ -1,0 +1,19 @@
+// https://github.com/mailhog/MailHog
+
+// Pour windows :
+// https://github.com/mailhog/MailHog/releases
+// Dans Assets
+// Télécharger le fichier MailHog_windows_amd64.exe
+// Le placer dans un dossier au choix (pas necessairement wamp)
+// je l'ai mis dans C:/wamp64/mailhog/
+// Sur la console, se positionner dans ce dossier et exécuter la ligne suivante :
+# .\MailHog_windows_amd64.exe
+
+// Pour accéder à l'outil : 
+# http://localhost:8025
+
+// Dans le fichier .env :
+# MAIL_MAILER=smtp
+# MAIL_HOST=127.0.0.1
+# MAIL_PORT=1025
+# MAIL_ENCRYPTION=null

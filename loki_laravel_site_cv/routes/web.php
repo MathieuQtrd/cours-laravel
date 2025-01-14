@@ -14,3 +14,4 @@ Route::get('/projets', function () {
 });
 Route::get('/contact', [ContactController::class, 'index']);
 Route::post('/contact', [ContactController::class, 'sendContactMail']);
+Route::get('/contacts', [ContactController::class, 'listeContacts']);
