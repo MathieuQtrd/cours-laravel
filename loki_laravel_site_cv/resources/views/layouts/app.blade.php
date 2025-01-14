@@ -30,6 +30,15 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{ url('/contact') }}">Contact</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('/contacts') }}">Liste Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('/devis') }}">Devis</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('/liste_devis') }}">Liste Devis</a>
+              </li>
             </ul>
           </div>
         </div>

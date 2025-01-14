@@ -6,11 +6,11 @@
 
     <div class="row">
         <div class="col-12">
-            <h1>Affichage des Contacts</h1>
+            <h1>Affichage des Devis</h1>
             <hr>            
             <!-- affichage du message flash -->
-            @if($contacts->isEmpty())
-                <p class="alert alert-success">Aucun contacts</p>
+            @if($devis->isEmpty())
+                <p class="alert alert-success">Aucun Devis</p>
             @else
                 {{-- @dump($contacts) --}}
                 {{-- @dd($contacts) --}}
@@ -19,17 +19,19 @@
                         <th>Id</th>
                         <th>Nom</th>
                         <th>email</th>
+                        <th>sujet</th>
                         <th>Message</th>
                         <th>Date</th>
                     </tr>
-                    @foreach($contacts AS $contact)
+                    @foreach($devis AS $ligne)
                         <tr>
                          {{-- @dump($contact) --}}
-                            <td>{{ $contact->id }}</td>
-                            <td>{{ $contact->name }}</td>
-                            <td>{{ $contact->email }}</td>
-                            <td>{{ $contact->message }}</td>
-                            <td>{{ $contact->created_at->format('d/m/Y H:i') }}</td>
+                            <td>{{ $ligne->id }}</td>
+                            <td>{{ $ligne->name }}</td>
+                            <td>{{ $ligne->email }}</td>
+                            <td>{{ $ligne->subject }}</td>
+                            <td>{{ $ligne->message }}</td>
+                            <td>{{ $ligne->created_at->format('d/m/Y H:i') }}</td>
                         </tr>
                     @endforeach
                 </table>

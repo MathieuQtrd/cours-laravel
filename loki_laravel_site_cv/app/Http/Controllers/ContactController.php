@@ -25,12 +25,14 @@ class ContactController extends Controller
             'name.max' => 'Le champs nom doit avoir une taille inférieure à 255 charactères.',
         ]);
 
-        Contact::create([
-            'name'  => $validated['name'],
-            'email'  => $validated['email'],
-            'message'  => $validated['message'],
-        ]);
+        // Contact::create([
+        //     'name'  => $validated['name'],
+        //     'email'  => $validated['email'],
+        //     'message'  => $validated['message'],
+        // ]);
         
+        Contact::create($validated);
+
         /*
         Mail::raw($validated['message'], function ($mail) use ($validated) {
             $mail->to('destinataire@mail.fr') // à remplacer
