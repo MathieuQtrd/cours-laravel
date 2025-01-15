@@ -83,7 +83,7 @@ class Employe extends Model
         // $path représente le chemin relatif que l'on stockera en bdd : exemple : photos/fichier.jpg
 
         // Pour supprimer un fichier
-        Storage::disk('public')->delete('photos/fichier.jpg');
+        Storage::disk('public')->delete($employe->photo);
 
         // Pour afficher le fichier dans une vue
         <img src="{{ Storage::url($employe->photo) }}">
