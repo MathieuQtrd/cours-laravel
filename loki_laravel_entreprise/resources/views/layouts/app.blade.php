@@ -38,7 +38,7 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#">Liste</a></li>
-                  <li><a class="dropdown-item" href="#">Ajouter</a></li>
+                  <li><a class="dropdown-item" href="{{ route('employes.create') }}">Ajouter</a></li>
                 </ul>
               </li>
             </ul>

@@ -8,7 +8,7 @@ use illuminate\Support\Facades\Storage;
 class Employe extends Model
 {
     protected $fillable = [
-        'firstname',
+        'fristname',
         'lastname',
         'email',
         'hiring_date',
@@ -89,7 +89,7 @@ class Employe extends Model
         <img src="{{ Storage::url($employe->photo) }}">
 
         // En passant par l'accessor, nous appliquons le Storage::url() en amont et cela nous permet d'avoir le bon chemin directement dans un  nouvel attribut créé via l'accessor : $employe->photo_url
-        <img src="{{ $employe->photo }}">
+        <img src="{{ $employe->photo_url }}">
 
     */
 
@@ -97,7 +97,7 @@ class Employe extends Model
     // {{ $employe->full_name }}
     public function getFullNameAttribute()
     {
-        return ucfirst($this->lastname) . ' ' . ucfirst($this->firstname);
+        return ucfirst($this->lastname) . ' ' . ucfirst($this->fristname);
     }
 
 
