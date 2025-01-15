@@ -18,7 +18,10 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->date('hiring_date');
             $table->decimal('salary', 10, 2);
-            $table->foreignId('service_id')->constrained()->onDelete('cascade');
+            $table->foreignId('service_id')->constrained()->onDelete('cascade'); // lié la table serviceS au niveau de la colonne id
+            // cascade | set null | restrict | no action
+            // $table->foreignId('service_secondaire_id')->nullable()->constrained('services')->onDelete('cascade'); 
+
             $table->string('photo')->nullable();
             $table->timestamps();
         });
