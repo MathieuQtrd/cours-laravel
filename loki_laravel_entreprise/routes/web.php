@@ -12,3 +12,4 @@ Route::get('/services/ajouter', [ServiceController::class, 'create'])->name('ser
 Route::post('/services/ajouter', [ServiceController::class, 'store'])->name('services.store');
 Route::get('/services/edit/{service}', [ServiceController::class, 'edit'])->name('services.edit');
 Route::put('/services/{service}', [ServiceController::class, 'update'])->name('services.update');
+Route::delete('/services/{service}', [ServiceController::class, 'destroy'])->name('services.destroy');
