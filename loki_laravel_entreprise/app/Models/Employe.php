@@ -93,6 +93,13 @@ class Employe extends Model
 
     */
 
+    // Création d'un nouvel attribut pour obtenir le nom et le prénom en une seule chaine via un accessor
+    // {{ $employe->full_name }}
+    public function getFullNameAttribute()
+    {
+        return ucfirst($this->lastname) . ' ' . ucfirst($this->firstname);
+    }
+
 
 
 }

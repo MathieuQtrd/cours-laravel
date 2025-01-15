@@ -23,11 +23,23 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Accueil</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href=""></a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Services
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{{ route('services.index') }}">Liste</a></li>
+                  <li><a class="dropdown-item" href="{{ route('services.create') }}">Ajouter</a></li>
+                </ul>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href=""></a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Employés
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Liste</a></li>
+                  <li><a class="dropdown-item" href="#">Ajouter</a></li>
+                </ul>
               </li>
             </ul>
           </div>
