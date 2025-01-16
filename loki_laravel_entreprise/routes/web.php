@@ -15,6 +15,13 @@ Route::put('/services/{service}', [ServiceController::class, 'update'])->name('s
 Route::delete('/services/{service}', [ServiceController::class, 'destroy'])->name('services.destroy');
 
 Route::prefix('employes')->name('employes.')->group(function () {
+    Route::get('/', [EmployeController::class, 'index'])->name('index');
     Route::get('/ajouter', [EmployeController::class, 'create'])->name('create');
     Route::post('/ajouter', [EmployeController::class, 'store'])->name('store');
+    Route::get('/modifier/{employe}', [EmployeController::class, 'edit'])->name('edit');
+    Route::put('/modifier/{employe}', [EmployeController::class, 'update'])->name('update');
+    Route::delete('/supprimer/{employe}', [EmployeController::class, 'destroy'])->name('destroy');
+    Route::get('/fiche/{employe}', [EmployeController::class, 'show'])->name('show');
+    // Route::get('/liste_par_service', [EmployeController::class, 'listByService'])->name('listByService'); // en passant un argument get
+    Route::get('/liste_par_service/{serviceName}', [EmployeController::class, 'listByService'])->name('listByService'); // on récupèrera la liste de employé par le nom service
 });

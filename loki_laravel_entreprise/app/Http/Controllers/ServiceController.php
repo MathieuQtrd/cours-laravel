@@ -26,7 +26,7 @@ class ServiceController extends Controller
 
         Service::create($validated);
 
-        return back()->with('success', 'Nouveau service enregistré');
+        return redirect()->route('services.index')->with('success', 'Nouveau service enregistré');
     }
 
     public function edit (Service $service) 

@@ -41,7 +41,7 @@
                 <div class="mb-3">
                     <label for="service_id">Service</label>
                     <select name="service_id" id="service_id" class="form-control">
-                        <option value="" selected disabled>Choisir</option>
+                        <option value="" disabled>Choisir</option>
                         @foreach($services AS $service)
                         <option value="{{ $service->id }}">{{ $service->service_name }}</option>
                         @endforeach

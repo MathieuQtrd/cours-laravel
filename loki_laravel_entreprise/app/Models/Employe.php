@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Storage;
 
 class Employe extends Model
 {
@@ -20,11 +20,12 @@ class Employe extends Model
     // protected $guarded = []; // sinon on peut exclure les champs qui ne sont pas remplissable
     // ne pas utiliser les deux. $guarded est prioritaire sur $fillable mais cel apourrait créer des conflits
 
+    
     protected $casts = [
         'hiring_date' => 'date', // transforme en objet Carbon (extension de DateTime)
     ];
     // casts possibles : integer, boolean, date, datetime, array, collection, float (à éviter), json, timestamp, encrypted
-
+    
     public function service()
     {
         // relation de type ManyToOne ou OneToOne
