@@ -15,6 +15,11 @@
                     @if(session('error'))
                     <p class="bg-red-100 text-red-700 p-4 rounded-lg mb-4">{{ session('error') }}</p>
                     @endif
+
+                    <a href="{{ route('admin.users.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded mb-4 inline-block">
+                        Ajouter un utilisateur
+                    </a>
+
                     <table class="w-full border-collapse text-left">
                         <tr>
                             <th class="p-3">Nom</th>

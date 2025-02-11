@@ -41,5 +41,9 @@ Route::get('/create_project', function () {
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
     Route::put('/admin/users/{id}/role', [UserController::class, 'updateRole'])->name('admin.users.updateRole');
-    Route::delete('/admin/users{id}', [UserController::class, 'destroy'])->name('admin.users.delete');
+    Route::delete('/admin/users/{id}', [UserController::class, 'destroy'])->name('admin.users.delete');
+
+    // création utilisateur
+    Route::get('/admin/users/create', [UserController::class, 'create'])->name('admin.users.create');
+    Route::post('/admin/users', [UserController::class, 'store'])->name('admin.users.store');
 });
