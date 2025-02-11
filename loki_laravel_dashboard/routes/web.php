@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\PermissionController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -46,4 +48,17 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     // création utilisateur
     Route::get('/admin/users/create', [UserController::class, 'create'])->name('admin.users.create');
     Route::post('/admin/users', [UserController::class, 'store'])->name('admin.users.store');
+
+    // roles
+    Route::get('/admin/roles', [RoleController::class, 'index'])->name('admin.roles.index');
+    Route::get('/admin/roles/create', [RoleController::class, 'create'])->name('admin.roles.create');
+    Route::post('/admin/roles', [RoleController::class, 'store'])->name('admin.roles.store');
+    Route::get('/admin/roles/{role}', [RoleController::class, 'show'])->name('admin.roles.show');
+    Route::put('/admin/roles/permissions/{role}', [RoleController::class, 'updatePermissions'])->name('admin.roles.updatePermissions');
+    Route::delete('/admin/roles/{id}', [RoleController::class, 'destroy'])->name('admin.roles.delete');
+
+    // permissions
+    Route::get('/admin/permissions', [PermissionController::class, 'index'])->name('admin.permissions.index');
+    Route::get('/admin/permissions/create', [PermissionController::class, 'create'])->name('admin.permissions.create');
+    Route::post('/admin/permissions', [PermissionController::class, 'store'])->name('admin.permissions.store');
 });

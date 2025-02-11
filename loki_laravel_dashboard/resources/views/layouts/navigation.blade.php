@@ -35,7 +35,13 @@
                         </x-nav-link>
                         <x-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')">
                             {{ __('Gestion des utilisateurs') }}
-                        </x-nav-link>                        
+                        </x-nav-link> 
+                        <x-nav-link :href="route('admin.roles.index')" :active="request()->routeIs('admin.roles.index')">
+                            {{ __('Gestion des rôles') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('admin.permissions.index')" :active="request()->routeIs('admin.permissions.index')">
+                            {{ __('Gestion des permissions') }}
+                        </x-nav-link>                       
                         @endhasrole
                     @endauth
                 </div>
