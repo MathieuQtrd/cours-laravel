@@ -12,6 +12,9 @@
                     @if(session('success'))
                     <p class="bg-green-100 text-green-700 p-4 rounded-lg mb-4">{{ session('success') }}</p>
                     @endif
+                    @if(session('error'))
+                    <p class="bg-red-100 text-red-700 p-4 rounded-lg mb-4">{{ session('error') }}</p>
+                    @endif
                     <table class="w-full border-collapse text-left">
                         <tr>
                             <th class="p-3">Nom</th>

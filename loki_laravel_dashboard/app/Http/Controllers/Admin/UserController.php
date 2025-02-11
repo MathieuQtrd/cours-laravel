@@ -20,11 +20,22 @@ class UserController extends Controller
 
     public function updateRole (Request $request, $id) 
     {
-        
+        $user = User::findOrFail($id);
+        $role = $request->input('role');
+
+        if($role && Role::where('name', $role)->exists()) {
+            $user->syncRoles([$role]);
+            return redirect()->route('admin.users.index')->with('success', 'Mise à jour du rôle.');
+        }
+        return redirect()->route('admin.users.index')->with('error', 'Une erreur inattendue s\'est produite.');
+
+
     }
 
     public function destroy ($id) 
     {
-        
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->route('admin.users.index')->with('success', 'L\'utilisateur a bien été supprimé.');
     }
 }
