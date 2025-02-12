@@ -21,11 +21,17 @@
                         <x-nav-link :href="route('client.dashboard')" :active="request()->routeIs('client.dashboard')">
                             {{ __('Dashboard Client') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('client.projects.index')" :active="request()->routeIs('client.projects.index')">
+                            {{ __('Voir mes projets') }}
+                        </x-nav-link>
                         @endhasrole
 
                         @hasrole('developpeur')
                         <x-nav-link :href="route('developpeur.dashboard')" :active="request()->routeIs('developpeur.dashboard')">
                             {{ __('Dashboard developpeur') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('developpeur.projects.index')" :active="request()->routeIs('developpeur.projects.index')">
+                            {{ __('Voir mes projets') }}
                         </x-nav-link>
                         @endhasrole
 
@@ -41,7 +47,10 @@
                         </x-nav-link>
                         <x-nav-link :href="route('admin.permissions.index')" :active="request()->routeIs('admin.permissions.index')">
                             {{ __('Gestion des permissions') }}
-                        </x-nav-link>                       
+                        </x-nav-link>  
+                        <x-nav-link :href="route('admin.projects.index')" :active="request()->routeIs('admin.projects.index')">
+                            {{ __('Gestion des projets') }}
+                        </x-nav-link>                      
                         @endhasrole
                     @endauth
                 </div>

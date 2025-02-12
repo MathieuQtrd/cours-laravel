@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -61,4 +62,26 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/permissions', [PermissionController::class, 'index'])->name('admin.permissions.index');
     Route::get('/admin/permissions/create', [PermissionController::class, 'create'])->name('admin.permissions.create');
     Route::post('/admin/permissions', [PermissionController::class, 'store'])->name('admin.permissions.store');
+
+    Route::get('/admin/projects', [ProjectController::class, 'index'])->name('admin.projects.index');
+    Route::get('/admin/projects/create', [ProjectController::class, 'create'])->name('admin.projects.create');
+    Route::post('/admin/projects', [ProjectController::class, 'store'])->name('admin.projects.store');
+    Route::get('/admin/projects/edit', [ProjectController::class, 'edit'])->name('admin.projects.edit');
+    Route::put('/admin/projects/update', [ProjectController::class, 'update'])->name('admin.projects.update');
+    Route::get('/admin/project/{project}', [ProjectController::class, 'show'])->name('admin.projects.show');
+    Route::delete('/admin/project/{project}', [ProjectController::class, 'destroy'])->name('admin.projects.delete');
+    Route::post('/admin/projects/add/developer/{project}', [ProjectController::class, 'addDeveloper'])->name('admin.projects.addDeveloper');
+    Route::delete('/admin/projects/remove/developer/{project}/{developer}', [ProjectController::class, 'removeDeveloper'])->name('admin.projects.removeDeveloper');
+});
+
+Route::middleware(['auth', 'role:developpeur'])->group(function () {    
+
+    Route::get('/developpeur/projects', [ProjectController::class, 'index'])->name('developpeur.projects.index');
+    Route::get('/developpeur/projects/{project}', [ProjectController::class, 'show'])->name('developpeur.projects.show');
+});
+
+Route::middleware(['auth', 'role:client'])->group(function () {
+   
+    Route::get('/client/projects', [ProjectController::class, 'index'])->name('client.projects.index');
+    Route::get('/client/projects/{project}', [ProjectController::class, 'show'])->name('client.projects.show');
 });
