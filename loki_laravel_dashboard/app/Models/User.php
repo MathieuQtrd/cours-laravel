@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
@@ -47,4 +48,19 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    public function projects() : BelongsToMany {
+        return $this->belongsToMany(Project::class); // project_user 
+        // pour récupérer les projets d'un développeur
+    }
+
+    public function projectClient() {
+        return $this->hasMany(Project::class, 'client_id');
+    }
+
+    public function projectOwner() {
+        return $this->hasMany(Project::class, 'owner_id');
+    }
+
 }
