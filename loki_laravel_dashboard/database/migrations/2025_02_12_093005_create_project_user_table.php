@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('project_user', function (Blueprint $table) {
             $table->engine('InnoDB');
             $table->id();
-            $table->string('service_name')->unique();
+            $table->foreignId('project_id')->constrained()->onDelete('cascade'); // projet
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');  // developpeur
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('project_user');
     }
 };
