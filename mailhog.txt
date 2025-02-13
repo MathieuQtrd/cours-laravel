@@ -5,7 +5,7 @@
 // Dans Assets
 // Télécharger le fichier MailHog_windows_amd64.exe
 // Le placer dans un dossier au choix (pas necessairement wamp)
-// je l'ai mis dans C:/wamp64/mailhog/
+// je l'ai mis dans C:/wamp64/www/mailhog/
 // Sur la console, se positionner dans ce dossier et exécuter la ligne suivante :
 # .\MailHog_windows_amd64.exe
 

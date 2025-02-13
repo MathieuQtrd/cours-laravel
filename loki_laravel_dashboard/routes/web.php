@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -85,3 +86,6 @@ Route::middleware(['auth', 'role:client'])->group(function () {
     Route::get('/client/projects', [ProjectController::class, 'index'])->name('client.projects.index');
     Route::get('/client/projects/{project}', [ProjectController::class, 'show'])->name('client.projects.show');
 });
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/send-mail', [ContactController::class, 'sendMail'])->name('send.mail');
