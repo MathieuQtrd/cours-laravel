@@ -1,5 +1,12 @@
 <?php 
 
+// https://laravel.com/docs/11.x/mail           Documentation
+// https://laravel.com/docs/11.x/notifications  Notifications
+// https://laravel.com/docs/11.x/queues         Files d'attente
+
+// https://symfony.com/doc/7.0/mailer.html      Symfony Mailer (Laravel se sert de cet outil pour les mails)
+
+
 // Création d'un controller 
 # php artisan make:controller ContactController
 
