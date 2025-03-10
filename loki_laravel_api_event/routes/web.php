@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ConcertController;
+use App\Models\Concert;
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,3 +31,12 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     // PUT      /admin/concerts/{concert}   admin.concerts.update
     // DELETE   /admin/concerts/{concert}   admin.concerts.destroy
 });
+
+Route::get('/concerts', function() {
+    return view('concerts.index');
+})->name('concerts.index');
+
+Route::get('/concerts/{id}', function($id) {
+    return view('concerts.show', ['id' => $id]);
+})->name('concerts.show');
+
