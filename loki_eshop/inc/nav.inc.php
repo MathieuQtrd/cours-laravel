@@ -6,15 +6,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav" id="menu">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php">Boutique</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="login.php">Connexion</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="register.php">Inscription</a>
-                    </li>
+                   
                 </ul>
             </div>
         </div>
