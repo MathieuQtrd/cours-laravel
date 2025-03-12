@@ -52,6 +52,7 @@
         -->
          <div class="row">
             <div class="col-sm-6 mx-auto">
+                <div id="messages"></div>
                 <form action="" enctype="multipart/form-data" id="addProductFrom" class="border p-3 my-3">
                     <div class="mb-3">
                         <label for="title">Titre</label>

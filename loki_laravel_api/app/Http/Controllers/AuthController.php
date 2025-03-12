@@ -17,7 +17,7 @@ class AuthController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|sting|min:8',
+            'password' => 'required|string|min:8',
         ]);
 
         $user = User::create([
@@ -25,6 +25,8 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        $user->assignRole('user');
 
         return response()->json(['message' => 'Inscription ok.']);
     }

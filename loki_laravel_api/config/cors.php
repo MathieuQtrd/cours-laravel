@@ -32,3 +32,11 @@ return [
     'supports_credentials' => true,
 
 ];
+/*
+'allowed_origins' => [
+    'http://localhost',
+    'http://localhost:8000',
+    'http://www.monsite.fr',
+],
+
+*/
