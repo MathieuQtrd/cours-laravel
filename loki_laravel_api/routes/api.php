@@ -24,3 +24,4 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
 });
 
 Route::get('products/list', [ProductController::class, 'index']);
+Route::get('products/{id}', [ProductController::class, 'show']);

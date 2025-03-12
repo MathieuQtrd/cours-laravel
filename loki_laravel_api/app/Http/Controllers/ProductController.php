@@ -69,7 +69,14 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $product = Product::find($id);
+        if(!$product) {
+            return response()->json(['erreur' => 'Produit non trouvé'], 404);
+        }
+        if($product->image) {
+            $product->image_url = url('storage/' . $product->image);
+        }
+        return response()->json($product);
     }
 
     /**
