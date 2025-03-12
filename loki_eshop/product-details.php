@@ -13,8 +13,8 @@
 
     <div class="container border mt-5 p-3">
         <div class="row">
-            <div class="col-md-6" id="productInfos"></div>
             <div class="col-md-6" id="productImage"></div>
+            <div class="col-md-6" id="productInfos"></div>
         </div>
     </div>
 
