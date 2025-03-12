@@ -85,6 +85,19 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $product = Product::find($id);
+        if(!$product) {
+            return response()->json(['erreur' => 'Produit non trouvé'], 404);
+        }
+        if($product->image) {
+            $imagePath = 'public/' . $product->image;
+            if(Storage::exists($imagePath)) {
+                Storage::delete($imagePath);
+            }
+        }
+
+        $product->delete();
+        
+        return response()->json(['message' => 'Produit supprimé']);
     }
 }
