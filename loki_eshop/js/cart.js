@@ -37,9 +37,6 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.reload();
     });
 
-    document.getElementById('pay-cart').addEventListener('click', function () {
-
-    });
 
 });
 
@@ -53,3 +50,4 @@ function removeItem(id) {
     localStorage.setItem('cart', JSON.stringify(cart));
     window.location.reload();
 }
+

@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\StripeCheckoutController;
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -25,3 +26,5 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
 
 Route::get('products/list', [ProductController::class, 'index']);
 Route::get('products/{id}', [ProductController::class, 'show']);
+
+Route::post('/checkout-session', [StripeCheckoutController::class, 'createCheckoutSession']);

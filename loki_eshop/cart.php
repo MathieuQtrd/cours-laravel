@@ -25,8 +25,61 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
     <script src="js/menu.js"></script>
+    <script src="https://js.stripe.com/v3"></script>
     <script src="js/cart.js"></script>
+    <script>
+        // POUR STRIPE 
+        document.getElementById('pay-cart').addEventListener('click', function () {
+            // la clé en dessous est la clé API public
+            let stripe = Stripe('pk_test_51R1XSKQxqYcUTDpJBsi2Lxs7qQo7gGRGd4FLzFkewYnRxPqYpGdJ8kFlPAGkPSFOzlovhfonqXmGVz5oUnjrMf7X00aAZAQhaH');
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            if(cart.length === 0) {
+                alert('Votre panier est vide');
+                return;
+            }
+
+            fetch('http://localhost:8000/api/checkout-session', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    cart
+                })
+            })
+            .then(response => response.json())
+            .then(session => {
+                if(session.error) {
+                    alert('Erreur' + session.error);
+                } else {
+                    stripe.redirectToCheckout({
+                        sessionId: session.id
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Erreur : ', error );
+            })
+
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            let urlParams = new URLSearchParams(window.location.search);
+            let paymentStatus = urlParams.get('payment');
+
+            if(paymentStatus == 'success') {
+                localStorage.removeItem('cart');
+                alert('Merci pour votre commande, vous pourrez voir le suivi de votre commande dans votre page profil...');
+                window.location.href = 'cart.php';
+            } else if(paymentStatus == 'cancel') {
+                alert('Paiement annulé.');
+                window.location.href = 'cart.php';
+            }
+        })
+    </script>
 </body>
 
 </html>
