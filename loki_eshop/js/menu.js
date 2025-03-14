@@ -2,15 +2,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const menu = document.getElementById('menu');
     const token = localStorage.getItem('token');
 
-    if(!token) {
-        menu.innerHTML = `
+    menu.innerHTML = `
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Boutique</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="cart.php">Panier</a></li>
+        `;
+
+    if(!token) {
+        menu.innerHTML += `
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="login.php">Connexion</a></li>
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="register.php">Inscription</a></li>
         `;
     } else {
-        menu.innerHTML = `
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Boutique</a></li>
+        menu.innerHTML += `
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="profile.php">Profil</a></li>
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="#" onclick="logout()">Déconnexion</a></li>
         `;
